@@ -36,4 +36,5 @@ jobs:
     # Step 5: Run Golden Tests
     - name: Run Golden Tests
       working-directory: ./testing_app
-      run: flutter test --update-goldens
+      run: flutter test --update-goldens --verbose
+
