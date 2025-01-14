@@ -50,3 +50,15 @@ jobs:
     - name: Debug Golden Files
       working-directory: ./testing_app
       run: ls -R test/golden_images
+
+      
+    # Step 8: Upload Files to Percy
+    - name: Upload Golden Files to Percy
+      working-directory: ./testing_app
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      run: |
+        # Install Percy CLI
+        npm install -g @percy/cli
+        # Upload golden files to Percy
+        percy upload ./test/golden_images/
